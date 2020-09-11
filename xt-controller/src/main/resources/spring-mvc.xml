@@ -22,6 +22,8 @@
     
    <context:component-scan base-package="com.xtkj.controller"></context:component-scan>
 
+    <bean class="com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor"/>
+
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="\"/>
         <property name="suffix" value=".jsp"/>

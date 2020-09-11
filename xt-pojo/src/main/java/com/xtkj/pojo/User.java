@@ -1,9 +1,6 @@
 package com.xtkj.pojo;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 @Data
@@ -18,5 +15,8 @@ public class User {
     private String loginId;
     @TableField("login_pwd")
     private String loginPwd;
+    @Version
+    @TableField("version")
+    private Integer version;
 
 }

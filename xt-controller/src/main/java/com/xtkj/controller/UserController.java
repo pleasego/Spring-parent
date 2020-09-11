@@ -5,12 +5,14 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xtkj.pojo.User;
 import com.xtkj.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+//@Configuration
 public class UserController {
 
     @Autowired
@@ -45,5 +47,12 @@ public class UserController {
     @RequestMapping("recordUser")
     public boolean recordUser(Integer id){//删除用户记录历史表
        return iUserService.delUser(id);
+    }
+
+    @RequestMapping("testVersion")
+    public boolean testVersion(Integer id){//添加乐观锁
+        User user = iUserService.getById(id);
+        user.setLoginId("888888");
+        return iUserService.updateById(user);
     }
 }
